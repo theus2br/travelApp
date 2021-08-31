@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>home</title>
@@ -47,17 +47,21 @@
                     <!-- Background image for card set in CSS! -->
                 </div>
                 <div class="card-body p-4 p-sm-5">
-                    <h5 class="card-title text-center mb-5 fw-light fs-5">Logado!!!!!!</h5>
-                    <form action="user/salvarPessoa" method="get">
+
+                   <!-- Mensagem de boas vindas + nome de usuario -->
+                    <h5 class="card-title text-center mb-5 fw-light fs-5" th:text="${nome}"></h5>
+                    <form action="user/cadastro" method="post" >
 
                         <div class="form-floating mb-3">
+                            <h1 ></h1>
                             <input type="text" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
-                            <label for="floatingInputUsername">Username</label>
+                            <label for="floatingInputUsername">username</label>
                         </div>
 
                         <div class="form-floating mb-3">
+
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Senha</label>
+                            <label for="floatingPassword">senha</label>
                         </div>
 
                         <div class="d-grid mb-2">

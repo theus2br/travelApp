@@ -24,11 +24,11 @@ public class UserService {
         return repo.findAll();
     }
 
-    public User encontrarUsuario(String nome) throws UserException {
-        try{
-            return repo.findUserByNome(nome);
-        }catch(Exception e){
-            throw new UserException("Usuário não encontrado");
+    public boolean encontrarUsuario(String nome) throws UserException {
+            if(repo.findUserByNome(nome) != null){
+            return true;
+        }else{
+                return false;
         }
     }
 }

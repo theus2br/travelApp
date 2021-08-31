@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>home</title>
@@ -48,18 +48,20 @@
                 </div>
                 <div class="card-body p-4 p-sm-5">
                     <h5 class="card-title text-center mb-5 fw-light fs-5">Comece agora a planejar sua viagem</h5>
-                    <form action="user/salvarPessoa" method="get">
+                    <form action="/login" method="post">
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
+                            <input type="text" name="nome" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
                             <label for="floatingInputUsername">Username</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" name="senha" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Senha</label>
                         </div>
-
+                        <div th:if="${logError} != null}" class="alert alert-danger" role="alert">
+                            <h1> Invalid username and password.</h1>
+                        </div>
                         <div class="d-grid mb-2">
                             <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Entrar</button>
                         </div>
