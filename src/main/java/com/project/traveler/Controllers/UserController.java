@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,32 +19,25 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @PostMapping
-    public ResponseEntity<?> cadastroUsuario(@RequestBody User body) throws UserException {
-        return new ResponseEntity<>(service.cadastroUsuario(body), HttpStatus.CREATED);
+    @PostMapping("/login")
+    public String logar(User body, Model model) throws UserException {
+        if(service.encontrarUsuario(body.getNome())) {
+            model.addAttribute("nome", "Bem vindo " + body.getNome());
+            return "home";
+        }else{
+            model.addAttribute("logError","logError");
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/cadastro")
-    public String cadastrar(User body) throws UserException {
+    public String cadastrar(User body, Model model) throws UserException {
         try{
+            model.addAttribute("nome", "Bem vindo " + body.getNome());
             service.cadastroUsuario(body);
             return "home";
         }catch (Exception e){
             throw new UserException("Erro ao cadastrar " + e);
         }
     }
-    @GetMapping("/mostrarTodos")
-    public List<User> listarUsuarios(){ return service.listarUsuarios(); }
-
-    @GetMapping(path = "/{id}")
-    public ResponseEntity<?> encontrarUsuario(@PathVariable String id) throws UserException {
-        service.encontrarUsuario(id);
-        return new ResponseEntity<>(service.encontrarUsuario(id), HttpStatus.OK); }
-
-    @GetMapping("/login")
-    public String logar(User body) throws UserException {
-        service.encontrarUsuario(body.getNome());
-        return "home";
-    }
-
 }

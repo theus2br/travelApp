@@ -6,8 +6,6 @@ import com.project.traveler.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class UserService {
 
@@ -20,15 +18,12 @@ public class UserService {
         else
             return repo.save(newUser);
     }
-    public List<User> listarUsuarios(){
-        return repo.findAll();
-    }
 
-    public User encontrarUsuario(String nome) throws UserException {
-        try{
-            return repo.findUserByNome(nome);
-        }catch(Exception e){
-            throw new UserException("Usuário não encontrado");
+    public boolean encontrarUsuario(String nome) throws UserException {
+        if(repo.findUserByNome(nome) != null){
+            return true;
+        }else{
+            return false;
         }
     }
 }

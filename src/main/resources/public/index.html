@@ -48,15 +48,15 @@
                 </div>
                 <div class="card-body p-4 p-sm-5">
                     <h5 class="card-title text-center mb-5 fw-light fs-5">Comece agora a planejar sua viagem</h5>
-                    <form action="user/salvarPessoa" method="get">
+                    <form action="user/login" method="post">
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
+                            <input type="text" name="nome" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
                             <label for="floatingInputUsername">Username</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" senha="senha" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Senha</label>
                         </div>
 
