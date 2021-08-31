@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>home</title>
+    <title>cadastro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
@@ -47,24 +47,36 @@
                     <!-- Background image for card set in CSS! -->
                 </div>
                 <div class="card-body p-4 p-sm-5">
-                    <h5 class="card-title text-center mb-5 fw-light fs-5">Logado!!!!!!</h5>
-                    <form action="user/salvarPessoa" method="get">
+                    <h5 class="card-title text-center mb-5 fw-light fs-5">Crie sua conta e começe a se planejar!</h5>
+                    <form action="user/cadastro" method="post">
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
+                            <input type="text" name="nome" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
                             <label for="floatingInputUsername">Username</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
+                            <label for="floatingInputEmail">Digite seu nome</label>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" name="senha" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Senha</label>
                         </div>
 
-                        <div class="d-grid mb-2">
-                            <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Entrar</button>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password">
+                            <label for="floatingPasswordConfirm">Confirmar Senha</label>
                         </div>
 
-                        <a class="d-block text-center mt-2 small" href="cadastro.html">Ainda não tem uma conta? Cadastre-se aqui</a>
+                        <div class="d-grid mb-2">
+                            <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Cadastre-se</button>
+                        </div>
+
+                        <a class="d-block text-center mt-2 small" href="index.html">Já tem uma conta? Entre aqui</a>
 
                         <hr class="my-4">
 

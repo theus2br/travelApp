@@ -23,6 +23,15 @@ public class UserController {
         return new ResponseEntity<>(service.cadastroUsuario(body), HttpStatus.CREATED);
     }
 
+    @PostMapping("/cadastro")
+    public String cadastrar(User body) throws UserException {
+        try{
+            service.cadastroUsuario(body);
+            return "home";
+        }catch (Exception e){
+            throw new UserException("Erro ao cadastrar " + e);
+        }
+    }
     @GetMapping("/mostrarTodos")
     public List<User> listarUsuarios(){ return service.listarUsuarios(); }
 
