@@ -39,8 +39,9 @@ public class UserController {
     @PostMapping("/cadastrando")
     public String cadastrar(User body, Model model) throws UserException {
         try{
+            User newUser = service.cadastroUsuario(body);
+            model.addAttribute("pessoa", newUser);
             model.addAttribute("name", "Bem vindo " + body.getName());
-            service.cadastroUsuario(body);
             return "home";
         }catch (Exception e){
             throw new UserException("Erro ao cadastrar " + e);
