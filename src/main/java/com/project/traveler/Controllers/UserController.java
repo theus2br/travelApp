@@ -17,7 +17,9 @@ public class UserController {
 
     @PostMapping("/login")
     public String logar(User body, Model model) throws UserException {
-        if(service.encontrarUsuario(body.getName())) {
+        if(service.encontrarUsuario(body.getName()) != null) {
+            User pessoa = service.encontrarUsuario(body.getName());
+            model.addAttribute("pessoa", pessoa);
             model.addAttribute("name", "Bem vindo " + body.getName());
             return "home";
         }else{
@@ -35,5 +37,10 @@ public class UserController {
         }catch (Exception e){
             throw new UserException("Erro ao cadastrar " + e);
         }
+    }
+
+    @GetMapping("/prepararLogin")
+    public String irAoLogin(){
+        return "login";
     }
 }

@@ -10,6 +10,19 @@ body {
     background-size: cover;
 }
 
+/* Exclusivo para a tela de cadastro  */
+#cadastro{
+    background: #007bff;
+    background: linear-gradient(to right, #edefc6, orange);
+}
+
+/* Exclusivo para a tela de cadastro  */
+#imgCadastro{
+    width: 80%;
+    background-image: url('https://lh3.googleusercontent.com/proxy/LX82fiuZeviDl-FYTepjIB65nTThSERa0vJMb640opuYIc6OFxqdsQMNraGfDh2-Y6dVx9hHxHhhCkNrc4F2ifHknVuPOzPbLx-VSsVvxLYsL6V_ZDuIhYVbnPngKhSQKyU');
+    background-size: 600px;
+    Background-repeat: no-repeat;
+}
 .btn-login {
     font-size: 0.9rem;
     letter-spacing: 0.05rem;

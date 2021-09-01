@@ -4,47 +4,13 @@
     <meta charset="UTF-8">
     <title>cadastro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        body {
-            background: #007bff;
-            background: linear-gradient(to right, #edefc6, orange);
-        }
-
-        .card-img-left {
-            width: 80%;
-            /* Link to your background image using in the property below! */
-            background-image: url('https://lh3.googleusercontent.com/proxy/LX82fiuZeviDl-FYTepjIB65nTThSERa0vJMb640opuYIc6OFxqdsQMNraGfDh2-Y6dVx9hHxHhhCkNrc4F2ifHknVuPOzPbLx-VSsVvxLYsL6V_ZDuIhYVbnPngKhSQKyU');
-            background-size: 600px;
-            Background-repeat: no-repeat;
-        }
-
-        .btn-login {
-            font-size: 0.9rem;
-            letter-spacing: 0.05rem;
-            padding: 0.75rem 1rem;
-        }
-
-        .btn-google {
-            color: white !important;
-            background-color: #ea4335;
-        }
-
-        .btn-facebook {
-            color: white !important;
-            background-color: #3b5998;
-        }
-
-    </style>
 </head>
-<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
-
-<body>
+<body id="cadastro">
 <div class="container">
     <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto">
             <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-                <div class="card-img-left d-none d-md-flex" style="background-color: #edefc6">
+                <div class="card-img-left d-none d-md-flex" id="imgCadastro" style="background-color: #edefc6">
                     <!-- Background image for card set in CSS! -->
                 </div>
                 <div class="card-body p-4 p-sm-5">
@@ -85,6 +51,8 @@
         </div>
     </div>
 </div>
+
+<link rel="stylesheet" type="text/css" th:href="@{style.css}" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 </body>

@@ -25,11 +25,11 @@ public class UserService {
             return repo.save(newUser);
     }
 
-    public boolean encontrarUsuario(String name) throws UserException {
+    public User encontrarUsuario(String name) throws UserException {
         if(repo.findUserByName(name) != null){
-            return true;
+            return repo.findUserByName(name);
         }else{
-            return false;
+            return null;
         }
     }
 }
