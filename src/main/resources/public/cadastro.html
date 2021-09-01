@@ -8,14 +8,15 @@
     <style>
         body {
             background: #007bff;
-            background: linear-gradient(to right, #0062E6, #33AEFF);
+            background: linear-gradient(to right, #edefc6, orange);
         }
 
         .card-img-left {
-            width: 45%;
+            width: 80%;
             /* Link to your background image using in the property below! */
-            background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
-            background-size: cover;
+            background-image: url('https://lh3.googleusercontent.com/proxy/LX82fiuZeviDl-FYTepjIB65nTThSERa0vJMb640opuYIc6OFxqdsQMNraGfDh2-Y6dVx9hHxHhhCkNrc4F2ifHknVuPOzPbLx-VSsVvxLYsL6V_ZDuIhYVbnPngKhSQKyU');
+            background-size: 600px;
+            Background-repeat: no-repeat;
         }
 
         .btn-login {
@@ -43,11 +44,11 @@
     <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto">
             <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-                <div class="card-img-left d-none d-md-flex">
+                <div class="card-img-left d-none d-md-flex" style="background-color: #edefc6">
                     <!-- Background image for card set in CSS! -->
                 </div>
                 <div class="card-body p-4 p-sm-5">
-                    <h5 class="card-title text-center mb-5 fw-light fs-5">Crie sua conta e começe a se planejar!</h5>
+                    <h5 class="card-title text-center mb-5 fw-light fs-5" >Crie sua conta e começe a se planejar!</h5>
                     <form action="user/cadastro" method="post">
 
                         <div class="form-floating mb-3">
@@ -77,20 +78,6 @@
                         </div>
 
                         <a class="d-block text-center mt-2 small" href="index.html">Já tem uma conta? Entre aqui</a>
-
-                        <hr class="my-4">
-
-                        <div class="d-grid mb-2">
-                            <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
-                                <i class="fab fa-google me-2"></i> Entrar com Google
-                            </button>
-                        </div>
-
-                        <div class="d-grid">
-                            <button class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" type="submit">
-                                <i class="fab fa-facebook-f me-2"></i> Entrar com Facebook
-                            </button>
-                        </div>
 
                     </form>
                 </div>
