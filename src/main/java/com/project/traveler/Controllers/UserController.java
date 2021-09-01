@@ -9,26 +9,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
 
     @Autowired
     private UserService service;
 
+    @GetMapping
+    public String irAoLogin() {
+        return "index";
+    }
+
     @PostMapping("/login")
     public String logar(User body, Model model) throws UserException {
-        if(service.encontrarUsuario(body.getName()) != null) {
-            User pessoa = service.encontrarUsuario(body.getName());
-            model.addAttribute("pessoa", pessoa);
-            model.addAttribute("name", "Bem vindo " + body.getName());
+        User newUser = service.encontrarUsuario(body.getName());
+        if(newUser != null) {
+            model.addAttribute("pessoa", newUser);
             return "home";
         }else{
-            model.addAttribute("logError","logError");
-            return "redirect:/";
+            model.addAttribute("logError","Usuário ou senha inválidos");
+            return "index";
         }
     }
 
-    @PostMapping("/cadastro")
+    @GetMapping("/cadastro")
+    public String vaiCadastrar(){
+        return "cadastro";
+    }
+    @PostMapping("/cadastrando")
     public String cadastrar(User body, Model model) throws UserException {
         try{
             model.addAttribute("name", "Bem vindo " + body.getName());
@@ -39,8 +47,5 @@ public class UserController {
         }
     }
 
-    @GetMapping("/prepararLogin")
-    public String irAoLogin(){
-        return "login";
-    }
+
 }

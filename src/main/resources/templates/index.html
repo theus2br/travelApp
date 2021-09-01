@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>index</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}" href="css/style.css">
 </head>
 <body>
 <div class="container">
@@ -15,8 +16,7 @@
                 </div>
                 <div class="card-body p-4 p-sm-5">
                     <h5 class="card-title text-center mb-5 fw-light fs-5">Comece agora a planejar sua viagem</h5>
-                    <form action="user/login" method="post">
-
+                    <form action="/login" method="post">
                         <div class="form-floating mb-3">
                             <input type="text" name="name" class="form-control" id="floatingInputUsername" placeholder="Username" required autofocus>
                             <label for="floatingInputUsername">Username</label>
@@ -31,13 +31,15 @@
                             <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Entrar</button>
                         </div>
 
-                        <a class="d-block text-center mt-2 small" href="cadastro.html">Ainda não tem uma conta? Cadastre-se aqui</a>
+                        <a th:href="@{cadastro}" class="d-block text-center mt-2 small" >Ainda não tem uma conta? Cadastre-se aqui</a>
 
                         <hr class="my-4">
-                        <h1 th:text="${logError}">aaa</h1>
+                        <div th:if="${logError != null}" class="alert alert-danger" role="alert" >
+                            Usuário ou senha inválidos!
+                        </div>
                         <div class="d-grid mb-2">
                             <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
-                                <i class="fab fa-google me-2" th:text="${logError}"></i> Entrar com Google
+                                <i class="fab fa-google me-2"></i> Entrar com Google
                             </button>
                         </div>
 
