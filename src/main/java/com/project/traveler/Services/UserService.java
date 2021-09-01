@@ -6,21 +6,27 @@ import com.project.traveler.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class UserService {
+    Date date = new Date(System.currentTimeMillis());
 
     @Autowired
     UserRepository repo;
 
     public User cadastroUsuario(User newUser) throws UserException {
-        if(repo.existsUserByNome(newUser.getNome()))
+        if(repo.existsUserByName(newUser.getName()))
             throw new UserException("Este username já está sendo utilizado");
         else
+            newUser.setCreated_date(date);
+            newUser.setLastUpdatedDate(date);
+            newUser.setLastLoginDate(date);
             return repo.save(newUser);
     }
 
-    public boolean encontrarUsuario(String nome) throws UserException {
-        if(repo.findUserByNome(nome) != null){
+    public boolean encontrarUsuario(String name) throws UserException {
+        if(repo.findUserByName(name) != null){
             return true;
         }else{
             return false;
