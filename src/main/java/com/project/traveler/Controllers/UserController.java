@@ -32,11 +32,12 @@ public class UserController {
         }
     }
 
-    @GetMapping("/cadastro")
+    @GetMapping("/viewCadastro")
     public String vaiCadastrar(){
         return "cadastro";
     }
-    @PostMapping("/cadastrando")
+
+    @PostMapping("/cadastro")
     public String cadastrar(User body, Model model) throws UserException {
         try{
             User newUser = service.cadastroUsuario(body);
@@ -47,6 +48,11 @@ public class UserController {
             throw new UserException("Erro ao cadastrar " + e);
         }
     }
-
+    @GetMapping("/profile")
+    public String perfil(@RequestParam String sourceText, Model model) throws UserException {
+        User newUser = service.encontrarUsuario(sourceText);
+        model.addAttribute("pessoa", newUser);
+        return "perfil";
+    }
 
 }

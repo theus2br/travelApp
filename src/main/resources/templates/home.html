@@ -17,8 +17,13 @@
                     <!-- Background image for card set in CSS! -->
                 </div>
                 <div class="card-body p-4 p-sm-5">
-                    <h5 class="card-title text-center mb-5 fw-light fs-5" th:text="${pessoa.name}"></h5>
-                    <h5 class="card-title text-center mb-5 fw-light fs-5" th:text="${pessoa.created_date}"></h5>
+                    <form action="profile" method="get">
+                        <h5 class="card-title text-center mb-5 fw-light fs-5" th:text="${pessoa.name}" ></h5>
+                        <input type="text" th:value="${pessoa.user}" name="sourceText" style="visibility: hidden">
+                    <h5 class="card-title text-center mb-5 fw-light fs-5" th:text="${pessoa.user}"></h5>
+                        <button type="submit">Tela de Perfil</button>
+                    </form>
+                    <a th:href="@{profile}" class="d-block text-center mt-2 small" >Tela de Perfil</a>
                 </div>
             </div>
         </div>

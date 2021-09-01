@@ -28,8 +28,8 @@ public class UserService {
     }
 
     public User encontrarUsuario(String name) throws UserException {
-        if(repo.findUserByName(name) != null){
-            return repo.findUserByName(name);
+        if(repo.findUserByUser(name) != null){
+            return repo.findUserByUser(name);
         }else{
             return null;
         }

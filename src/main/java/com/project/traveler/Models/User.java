@@ -13,6 +13,7 @@ public class User {
     private String ID;
     private String user;
     private String name;
+    private String email;
     private String password;
     private Date created_date;
     private Date lastUpdatedDate;
